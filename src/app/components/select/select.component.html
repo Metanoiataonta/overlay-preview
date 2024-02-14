@@ -1,7 +1,24 @@
-<div class="body">
-  <ng-container></ng-container>
+<div class="body select" (click)="toggle()" #body>
+    <ng-container *ngTemplateOutlet="selectedTemplate()"></ng-container>
+    <svg
+        width="24" height="24" color="#A2A9B8"
+        viewBox="0 0 24 24" stroke="currentColor" fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="select__chevron">
+        <path d="M9 13L12 10L15 13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
 </div>
 <ng-content></ng-content>
-<ng-container *ngFor="let option of options">
-  <ng-container *ngTemplateOutlet="option.template"></ng-container>
-</ng-container>
+<ng-template #template>
+    <div class="select__wrapper">
+        <div *ngFor="let option of options" class="select__item" (click)="pickItem(option.template)">
+            <div class="select__item-inner">
+                <ng-container *ngTemplateOutlet="option.template"></ng-container>
+
+            </div>
+        </div>
+    </div>
+    <ng-container>
+    </ng-container>
+
+</ng-template>

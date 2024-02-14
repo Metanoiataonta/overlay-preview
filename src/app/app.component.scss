@@ -7,3 +7,7 @@
 .control__value {
     margin-left: 8px;
 }
+
+app-template-component:not(:last-of-type) {
+    margin-bottom: 10px;
+}

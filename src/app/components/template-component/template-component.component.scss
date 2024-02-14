@@ -1,3 +1,7 @@
+:host {
+    display: block;
+}
+
 code {
     white-space: pre;
     padding: 12px 10px;
@@ -7,12 +11,13 @@ code {
 .template {
     background: rgba(250, 251, 252, 1);
     padding: 12px 10px;
-
     color: rgba(122, 130, 147, 1);
     border-radius: 8px;
     border: 1px solid rgba(122, 130, 147, 1);
 }
 
-.toggler {
+
+.toggle-box {
     cursor: pointer;
+    padding: 10px;
 }

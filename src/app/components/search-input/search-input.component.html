@@ -1,4 +1,4 @@
-<div class="search-input" [ngClass]="{open: isListVisible()}" (click)="toggleList()" #input>
+<div class="search-input" [ngClass]="{open: isOpen()}" (click)="toggleList()" #input>
     <input type="text" class="search-input__input" [ngModel]="value()"
            (ngModelChange)="valueChange($event)">
     <svg (click)=" toggleList($event)" [style.color]="list().length > 0 ? '#A2A9B8' : 'red'"
