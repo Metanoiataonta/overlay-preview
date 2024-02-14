@@ -1,12 +1,34 @@
-<app-select>
-  <app-option>
-    <ng-template>
-      first
-    </ng-template>
-  </app-option>
-  <app-option>
-    <ng-template>
-      second
-    </ng-template>
-  </app-option>
-</app-select>
+<div class="container">
+    <div class="search-input">
+        <h1>Input with search</h1>
+        <div class="control__wrapper">
+            <app-search-input [ngModel]="searchInputValue()"
+                              (ngModelChange)="searchInputValue.set($event)"></app-search-input>
+            <h2 class="control__value">
+                Value: {{ searchInputValue() }}
+            </h2>
+
+        </div>
+        <h2>Component Template</h2>
+        <app-template-component [template]="searchTemplate"></app-template-component>
+        <app-template-component [template]="searchTemplate"></app-template-component>
+    </div>
+    <div class="select">
+        <h1>Select component</h1>
+        <app-select>
+            <app-option>
+                <ng-template>
+                    first
+                </ng-template>
+            </app-option>
+            <app-option>
+                <ng-template>
+                    second
+                </ng-template>
+            </app-option>
+        </app-select>
+
+
+    </div>
+
+</div>

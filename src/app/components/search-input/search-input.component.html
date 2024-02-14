@@ -1,1 +1,22 @@
-<input type="text" class="search-input" [(ngModel)]="value">
+<div class="search-input" [ngClass]="{open: isListVisible()}" (click)="toggleList()" #input>
+    <input type="text" class="search-input__input" [ngModel]="value()"
+           (ngModelChange)="valueChange($event)">
+    <svg (click)=" toggleList($event)" [style.color]="list().length > 0 ? '#A2A9B8' : 'red'"
+         width="24" height="24"
+         viewBox="0 0 24 24" stroke="currentColor" fill="none"
+         xmlns="http://www.w3.org/2000/svg"
+         class="search-input__chevron">
+        <path d="M9 13L12 10L15 13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+</div>
+<ng-template>
+    <div class="search-input__wrapper">
+        <div *ngFor="let item of list()" class="search-input__item" (click)="pickItem(item)">
+            <div class="search-input__item-inner">
+                {{ item }}
+
+            </div>
+        </div>
+    </div>
+</ng-template>

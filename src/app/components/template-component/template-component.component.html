@@ -1,0 +1,6 @@
+<div class="template">
+    <button class="toggler" (click)="visible.set(!visible())">{{ visible() ? '-' : '+' }}</button>
+
+    <code *ngIf="visible()">{{ template }}</code>
+</div>
+
