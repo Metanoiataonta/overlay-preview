@@ -1,0 +1,7 @@
+<div class="body">
+  <ng-container></ng-container>
+</div>
+<ng-content></ng-content>
+<ng-container *ngFor="let option of options">
+  <ng-container *ngTemplateOutlet="option.template"></ng-container>
+</ng-container>
