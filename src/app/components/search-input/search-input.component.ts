@@ -41,7 +41,6 @@ export class SearchInputComponent extends AbstractOverlayedComponent implements 
     value = signal('');
     sourceList = Array(10).fill('').map(() => Math.round(Math.random() * 10000).toString());
     list = signal(this.sourceList);
-    isOpen = signal(false);
     disabled = signal(false);
     @ViewChild('input') protected anchor!: ElementRef;
     @ViewChild(TemplateRef) protected _overlayTemplate!: TemplateRef<any>;
@@ -79,7 +78,7 @@ export class SearchInputComponent extends AbstractOverlayedComponent implements 
         if (this._overlayRef != null) {
             return;
         }
-        this._toggleOverlay(event);
+        this.toggleOverlay(event);
     }
 
     protected override _dispatchOverlay() {

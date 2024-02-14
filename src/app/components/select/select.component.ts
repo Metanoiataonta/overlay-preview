@@ -1,7 +1,7 @@
 import {
     AfterContentInit,
     Component,
-    ContentChildren, ElementRef,
+    ContentChildren, ElementRef, OnInit,
     QueryList,
     signal, TemplateRef, ViewChild,
     ViewChildren, ViewContainerRef,
@@ -12,6 +12,7 @@ import {NgForOf, NgTemplateOutlet} from "@angular/common";
 import {ControlValueAccessor} from "@angular/forms";
 import {Overlay, OverlayRef} from "@angular/cdk/overlay";
 import {TemplatePortal} from "@angular/cdk/portal";
+import {AbstractOverlayedComponent} from "../abstract.overlayed.component";
 
 @Component({
     selector: 'app-select',
@@ -23,17 +24,17 @@ import {TemplatePortal} from "@angular/cdk/portal";
     templateUrl: './select.component.html',
     styleUrl: './select.component.scss'
 })
-export class SelectComponent<T> implements AfterContentInit, ControlValueAccessor {
+export class SelectComponent<T> extends AbstractOverlayedComponent implements AfterContentInit, ControlValueAccessor {
     selected: WritableSignal<T | null> = signal(null);
     isDisabled = false;
     selectedTemplate: WritableSignal<TemplateRef<any> | null> = signal(null);
     private _onChange?: (value: T | null) => {};
     private _onTouch?: (value: T | null) => {};
-    private _overlayRef: OverlayRef | null = null;
-    @ViewChild('body') body!: ElementRef;
-    @ViewChild('template') private _template!: TemplateRef<any>;
+    @ViewChild('body') anchor!: ElementRef;
+    @ViewChild('template') protected _overlayTemplate!: TemplateRef<any>;
 
-    constructor(private _overlay: Overlay, private _viewContainer: ViewContainerRef) {
+    constructor(protected _overlay: Overlay, protected _view: ViewContainerRef) {
+        super();
     }
 
     writeValue(value: T | null): void {
@@ -63,24 +64,9 @@ export class SelectComponent<T> implements AfterContentInit, ControlValueAccesso
             this.selectedTemplate.set(this.options.get(0)?.template!);
     }
 
-    toggle() {
-        if (this._overlayRef == null) {
-            this._overlayRef = this._overlay.create({
-                positionStrategy: this._overlay.position().flexibleConnectedTo(this.body).withPositions([{
-                    originX: 'center',
-                    originY: 'bottom',
-                    overlayX: 'center',
-                    overlayY: 'top',
-                    offsetY: 8
-                }]),
-                width: '320px',
-                scrollStrategy: this._overlay.scrollStrategies.reposition()
-            });
-            this._overlayRef.attach(new TemplatePortal(this._template, this._viewContainer));
-        }
-    }
 
     pickItem(item: TemplateRef<any>) {
         this.selectedTemplate.set(item);
+        this._dispatchOverlay();
     }
 }
