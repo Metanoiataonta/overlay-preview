@@ -14,6 +14,7 @@ export abstract class AbstractOverlayedComponent {
         if (cb != null) {
             cb();
         }
+        this.isOpen.set(false);
         this._overlayRef?.dispose();
         this._overlayRef = null;
 

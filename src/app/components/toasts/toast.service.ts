@@ -2,7 +2,7 @@ import {Injectable, signal, WritableSignal} from "@angular/core";
 import {Overlay} from "@angular/cdk/overlay";
 import {ToastsComponent} from "./toasts.component";
 import {ComponentPortal} from "@angular/cdk/portal";
-import {delay, Subject, timer} from "rxjs";
+import {debounceTime, Subject} from "rxjs";
 import {ToastType, ToastModel} from "./toast.model";
 
 @Injectable({providedIn: 'root'})
@@ -11,7 +11,7 @@ export class ToastService {
     lastToastReceived$ = new Subject();
 
     constructor(private _overlay: Overlay) {
-        this.lastToastReceived$.pipe(delay(5000)).subscribe(() => {
+        this.lastToastReceived$.pipe(debounceTime(5000)).subscribe(() => {
             this.toasts.set([]);
         });
     }

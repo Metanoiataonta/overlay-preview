@@ -8,7 +8,7 @@ import {
     WritableSignal
 } from '@angular/core';
 import {OptionComponent} from "./option/option.component";
-import {NgForOf, NgTemplateOutlet} from "@angular/common";
+import {NgClass, NgForOf, NgTemplateOutlet} from "@angular/common";
 import {ControlValueAccessor} from "@angular/forms";
 import {Overlay, OverlayRef} from "@angular/cdk/overlay";
 import {TemplatePortal} from "@angular/cdk/portal";
@@ -19,7 +19,8 @@ import {AbstractOverlayedComponent} from "../abstract.overlayed.component";
     standalone: true,
     imports: [
         NgForOf,
-        NgTemplateOutlet
+        NgTemplateOutlet,
+        NgClass
     ],
     templateUrl: './select.component.html',
     styleUrl: './select.component.scss'

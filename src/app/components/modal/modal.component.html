@@ -1,0 +1,7 @@
+<div class="modal">
+    <p>Вы действительно хотите нажать кнопку "Да"?</p>
+    <div class="modal__controls">
+        <button class="modal__button" (click)="select.emit(false)">Нет</button>
+        <button class="modal__button modal__button_primary" (click)="select.emit(true)">Да</button>
+    </div>
+</div>

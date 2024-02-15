@@ -9,11 +9,11 @@
             </h2>
 
         </div>
-        <h2>Component Template</h2>
-        <app-template-component [template]="searchTemplate"></app-template-component>
-        <h2>Component Code</h2>
+        <!--        <h2>Input with search Template</h2>-->
+        <!--        <app-template-component [template]="searchTemplate"></app-template-component>-->
+        <!--        <h2>Input with search Code</h2>-->
 
-        <app-template-component [template]="searchComponent"></app-template-component>
+        <!--        <app-template-component [template]="searchComponent"></app-template-component>-->
     </div>
     <div class="select">
         <h1>Select component</h1>
@@ -66,12 +66,42 @@
 
             </app-select>
         </div>
+        <!--        <h2>Select Template</h2>-->
+        <!--        <app-template-component [template]="selectTemplate"></app-template-component>-->
+        <!--        <h2>Select Code</h2>-->
 
+        <!--        <app-template-component [template]="selectCode"></app-template-component>-->
+        <!--        <h2>Option Template</h2>-->
+        <!--        <app-template-component [template]="optionTemplate"></app-template-component>-->
+        <!--        <h2>Option Code</h2>-->
+
+        <!--        <app-template-component [template]="optionCode"></app-template-component>-->
 
     </div>
     <div class="toast">
         <h1>Toast</h1>
         <button (click)="makeToast()">Make toast</button>
-    </div>
 
+        <!--        <h2>Toast Template</h2>-->
+        <!--        <app-template-component [template]="toastTemplate"></app-template-component>-->
+        <!--        <h2>Toast Code</h2>-->
+        <!--        <app-template-component [template]="toastCode"></app-template-component>-->
+        <!--        <h2>Toast Service</h2>-->
+        <!--        <app-template-component [template]="toastService"></app-template-component>-->
+
+    </div>
+    <div class="modal">
+        <h1>Modal</h1>
+        <div class="control__wrapper">
+            <button (click)="showModal()"> Show Modal</button>
+            <h2>Value: {{ lastYes() ? 'Да' : 'Нет' }}</h2>
+        </div>
+        <!--        <h2>Modal Template</h2>-->
+        <!--        <app-template-component [template]="modalTemplate"></app-template-component>-->
+        <!--        <h2>Modal Code</h2>-->
+        <!--        <app-template-component [template]="modalCode"></app-template-component>-->
+        <!--        <h2>Modal Handler</h2>-->
+        <!--        <app-template-component [template]="modalHandler"></app-template-component>-->
+
+    </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="body select" (click)="toggleOverlay()" #body>
+<div class="body select" (click)="toggleOverlay()" #body [ngClass]="{open: isOpen()}">
     <ng-container *ngTemplateOutlet="selectedTemplate()"></ng-container>
     <svg
         width="24" height="24" color="#A2A9B8"
