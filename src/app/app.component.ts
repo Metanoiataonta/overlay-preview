@@ -16,11 +16,10 @@ import {
     SELECT_COMPONENT_TEMPLATE
 } from "./constants/templates/select";
 import {TOAST_COMPONENT_CODE, TOAST_COMPONENT_TEMPLATE, TOAST_SERVICE_CODE} from "./constants/templates/toast";
-import {Overlay, OverlayRef} from "@angular/cdk/overlay";
-import {ComponentPortal} from "@angular/cdk/portal";
-import {ModalComponent} from "./components/modal/modal.component";
-import {forkJoin, merge, of} from "rxjs";
+import {Overlay} from "@angular/cdk/overlay";
+
 import {MODAL_COMPONENT_CODE, MODAL_COMPONENT_TEMPLATE, MODAL_HANDLER} from "./constants/templates/modal";
+import {ModalHandler} from "./components/modal/modal.handler";
 
 @Component({
     selector: 'app-root',
@@ -29,7 +28,7 @@ import {MODAL_COMPONENT_CODE, MODAL_COMPONENT_TEMPLATE, MODAL_HANDLER} from "./c
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit {
+export class AppComponent extends ModalHandler implements OnInit {
     searchInputValue = signal('');
     toasts!: WritableSignal<ToastModel[]>;
     title = 'overlayStand';
@@ -46,10 +45,9 @@ export class AppComponent implements OnInit {
     modalCode = MODAL_COMPONENT_CODE;
     modalHandler = MODAL_HANDLER;
     @ViewChild(SelectComponent) selectedComponent!: SelectComponent<any>;
-    private _overlayRef: OverlayRef | null = null;
-    lastYes: WritableSignal<boolean | null> = signal(null);
 
-    constructor(private _toastSrv: ToastService, private _overlay: Overlay) {
+    constructor(private _toastSrv: ToastService, _overlay: Overlay) {
+        super(_overlay);
         this.toasts = this._toastSrv.toasts;
 
     }
@@ -63,24 +61,4 @@ export class AppComponent implements OnInit {
         this._toastSrv.showToast(randomToastType, randomToastType);
     }
 
-    showModal() {
-        if (this._overlayRef != null) {
-            return;
-        }
-        this._overlayRef = this._overlay.create({
-            positionStrategy: this._overlay.position().global().centerVertically().centerHorizontally(),
-            scrollStrategy: this._overlay.scrollStrategies.noop(),
-            hasBackdrop: true
-        });
-        const componentPortal = new ComponentPortal(ModalComponent);
-
-        const componentRef = this._overlayRef.attach(componentPortal);
-
-        merge(this._overlayRef.outsidePointerEvents(), componentRef.instance.select).subscribe((v) => {
-            this.lastYes.set(v === true);
-            this._overlayRef?.dispose();
-            this._overlayRef = null;
-        });
-
-    }
 }
