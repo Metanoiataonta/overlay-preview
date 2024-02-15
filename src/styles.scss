@@ -1,4 +1,5 @@
 @import '@angular/cdk/overlay-prebuilt.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 .container {
     max-width: 1024px;
@@ -11,3 +12,7 @@
 }
 
 
+body {
+    font-family: "Inter", sans-serif;
+
+}

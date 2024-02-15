@@ -1,5 +1,71 @@
-p {
-    padding: 12px 10px;
-    background: red;
-    border-radius: 10px;
+.toast {
+    padding: 20px 24px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    border-color: rgba(237, 239, 243, 1);
+    width: 450px;
+    background: white;
+    position: relative;
+    overflow: hidden;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 12px 0px rgba(57, 63, 78, 0.13);
+
+    &__icon {
+        margin-right: 12px;
+        height: 24px;
+    }
+
+    &__hide {
+        background: rgba(237, 239, 243, 1);
+        width: 450px;
+        height: 40px;
+        padding: 8px 16px 8px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 4px;
+        //border-radius: 8px 0 0 8px;
+    }
+
+    &_error::before {
+        background: rgba(255, 86, 78, 1);
+    }
+
+    &_success::before {
+        background: rgba(40, 199, 93, 1);
+
+    }
+
+    &_warning::before {
+        background: rgba(248, 183, 63, 1);
+
+    }
+
+    &_info::before {
+        background: rgba(0, 149, 255, 1);
+
+    }
+
+    &:not(:last-of-type) {
+        margin-bottom: 12px;
+    }
 }

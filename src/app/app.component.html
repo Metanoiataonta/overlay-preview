@@ -17,49 +17,55 @@
     </div>
     <div class="select">
         <h1>Select component</h1>
-        <app-select>
-            <app-option>
-                <ng-template>
-                    <div style="display:flex; align-items: center; justify-content: space-between; width: 100%">
+        <div class="control__wrapper">
 
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect y="4" width="24" height="15" rx="2" fill="#0071C1"/>
-                            <path
-                                d="M23.9267 5.46145C23.6915 4.61847 22.918 4 22 4H21.7348L14.0689 8.79121V4H9.93095V8.79121L2.26508 4H2C1.082 4 0.308454 4.61849 0.0733307 5.4615L6.57696 9.52629H0V13.4737H6.57696L0.0733306 17.5385C0.308453 18.3815 1.082 19 2 19H2.26513L9.93104 14.2088V19H14.069V14.2088L21.7349 19H22C22.918 19 23.6915 18.3815 23.9267 17.5385L17.423 13.4737H23.9999V9.52634H17.4229L23.9267 5.46145Z"
-                                fill="#F4F6F8"/>
-                            <path
-                                d="M1.23113 18.8469C0.958416 18.7332 0.71626 18.5609 0.520416 18.3457L8.38831 13.4736L9.90837 13.4737L1.23113 18.8469Z"
-                                fill="#FF564E"/>
-                            <path
-                                d="M23.6815 18.0833C23.5316 18.3155 23.3349 18.5146 23.1048 18.6674L14.7171 13.4736H16.2372L23.6815 18.0833Z"
-                                fill="#FF564E"/>
-                            <path
-                                d="M23.4715 4.64545L15.5894 9.52636H14.0693L22.7555 4.14758C23.0299 4.25962 23.2739 4.43087 23.4715 4.64545Z"
-                                fill="#FF564E"/>
-                            <path
-                                d="M0.269257 4.99708L7.58367 9.52635H9.10373L0.811287 4.39143C0.591915 4.55381 0.406929 4.76 0.269257 4.99708Z"
-                                fill="#FF564E"/>
-                            <path d="M11 4H13V19H11V4Z" fill="#FF564E"/>
-                            <path d="M24 10.5V12.5L0 12.5L4.1963e-08 10.5L24 10.5Z" fill="#FF564E"/>
-                        </svg>
-                        <p>En</p></div>
+            <app-select>
+                <app-option>
+                    <ng-template>
+                        <div style="display:flex; align-items: center; justify-content: space-between; width: 100%">
+
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect y="4" width="24" height="15" rx="2" fill="#0071C1"/>
+                                <path
+                                    d="M23.9267 5.46145C23.6915 4.61847 22.918 4 22 4H21.7348L14.0689 8.79121V4H9.93095V8.79121L2.26508 4H2C1.082 4 0.308454 4.61849 0.0733307 5.4615L6.57696 9.52629H0V13.4737H6.57696L0.0733306 17.5385C0.308453 18.3815 1.082 19 2 19H2.26513L9.93104 14.2088V19H14.069V14.2088L21.7349 19H22C22.918 19 23.6915 18.3815 23.9267 17.5385L17.423 13.4737H23.9999V9.52634H17.4229L23.9267 5.46145Z"
+                                    fill="#F4F6F8"/>
+                                <path
+                                    d="M1.23113 18.8469C0.958416 18.7332 0.71626 18.5609 0.520416 18.3457L8.38831 13.4736L9.90837 13.4737L1.23113 18.8469Z"
+                                    fill="#FF564E"/>
+                                <path
+                                    d="M23.6815 18.0833C23.5316 18.3155 23.3349 18.5146 23.1048 18.6674L14.7171 13.4736H16.2372L23.6815 18.0833Z"
+                                    fill="#FF564E"/>
+                                <path
+                                    d="M23.4715 4.64545L15.5894 9.52636H14.0693L22.7555 4.14758C23.0299 4.25962 23.2739 4.43087 23.4715 4.64545Z"
+                                    fill="#FF564E"/>
+                                <path
+                                    d="M0.269257 4.99708L7.58367 9.52635H9.10373L0.811287 4.39143C0.591915 4.55381 0.406929 4.76 0.269257 4.99708Z"
+                                    fill="#FF564E"/>
+                                <path d="M11 4H13V19H11V4Z" fill="#FF564E"/>
+                                <path d="M24 10.5V12.5L0 12.5L4.1963e-08 10.5L24 10.5Z" fill="#FF564E"/>
+                            </svg>
+                            <p>En</p></div>
 
 
-                </ng-template>
-            </app-option>
-            <app-option>
-                <ng-template>
-                    <div style="display:flex; align-items: center; justify-content: space-between; width: 100%">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect y="4" width="24" height="15" rx="2" fill="#F4F6F8"/>
-                            <path d="M0 14H24V17C24 18.1046 23.1046 19 22 19H2C0.89543 19 0 18.1046 0 17V14Z"
-                                  fill="#FF564E"/>
-                            <rect y="9" width="24" height="5" fill="#0071C1"/>
-                        </svg>
-                        <p>Ru</p></div>
-                </ng-template>
-            </app-option>
-        </app-select>
+                    </ng-template>
+                </app-option>
+                <app-option>
+                    <ng-template>
+                        <div style="display:flex; align-items: center; justify-content: space-between; width: 100%">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect y="4" width="24" height="15" rx="2" fill="#F4F6F8"/>
+                                <path d="M0 14H24V17C24 18.1046 23.1046 19 22 19H2C0.89543 19 0 18.1046 0 17V14Z"
+                                      fill="#FF564E"/>
+                                <rect y="9" width="24" height="5" fill="#0071C1"/>
+                            </svg>
+                            <p>Ru</p></div>
+                    </ng-template>
+                </app-option>
+
+            </app-select>
+        </div>
 
 
     </div>

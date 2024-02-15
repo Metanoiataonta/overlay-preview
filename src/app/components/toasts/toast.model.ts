@@ -1,6 +1,6 @@
-export type IToastType = 'success' | 'error'
+export type ToastType = 'success' | 'error' | 'warning' | 'info';
 
 export class ToastModel {
-    constructor(public text: string, public type: IToastType) {
+    constructor(public text: string, public type: ToastType) {
     }
 }

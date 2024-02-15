@@ -3,7 +3,7 @@ import {Overlay} from "@angular/cdk/overlay";
 import {ToastsComponent} from "./toasts.component";
 import {ComponentPortal} from "@angular/cdk/portal";
 import {delay, Subject, timer} from "rxjs";
-import {IToastType, ToastModel} from "./toast.model";
+import {ToastType, ToastModel} from "./toast.model";
 
 @Injectable({providedIn: 'root'})
 export class ToastService {
@@ -20,16 +20,20 @@ export class ToastService {
         const ref = this._overlay.create({
             positionStrategy: this._overlay.position()
                 .global()
-                .bottom('10%')
-                .right('10%'),
+                .top('16px')
+                .right('16px'),
         });
         ref.attach(new ComponentPortal(ToastsComponent));
 
     }
 
-    showToast(text: string, type: IToastType) {
+    showToast(text: string, type: ToastType) {
         this.toasts.set([...this.toasts(), new ToastModel(text, type)]);
         this.lastToastReceived$.next(null);
 
+    }
+
+    hideAll() {
+        this.toasts.set([]);
     }
 }
