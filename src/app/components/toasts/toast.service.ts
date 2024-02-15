@@ -17,13 +17,14 @@ export class ToastService {
     }
 
     appendOverlay() {
-        const ref = this._overlay.create({
+        this._overlay.create({
             positionStrategy: this._overlay.position()
                 .global()
                 .top('16px')
                 .right('16px'),
-        });
-        ref.attach(new ComponentPortal(ToastsComponent));
+        })
+            .attach(new ComponentPortal(ToastsComponent));
+
 
     }
 
