@@ -1,0 +1,9 @@
+<div class="tooltip" #anchor (mouseenter)="show($event)"
+>
+    📌
+</div>
+<ng-template>
+    <div class="tooltip__content">
+        <ng-content></ng-content>
+    </div>
+</ng-template>

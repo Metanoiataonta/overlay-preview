@@ -11,11 +11,12 @@ import {NgForOf, NgIf, NgTemplateOutlet} from "@angular/common";
 
 import {ModalHandler} from "./components/modal/modal.handler";
 import {Overlay} from "@angular/cdk/overlay";
+import {TooltipComponent} from "./components/tooltip/tooltip.component";
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, SelectComponent, OptionComponent, SearchInputComponent, FormsModule, TemplateComponentComponent, NgForOf, NgIf, NgTemplateOutlet],
+    imports: [RouterOutlet, SelectComponent, OptionComponent, SearchInputComponent, FormsModule, TemplateComponentComponent, NgForOf, NgIf, NgTemplateOutlet, TooltipComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
 })
