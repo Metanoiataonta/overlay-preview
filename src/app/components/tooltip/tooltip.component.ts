@@ -10,7 +10,7 @@ import {
 import {AbstractOverlayedComponent} from "../abstract.overlayed.component";
 import {Overlay} from "@angular/cdk/overlay";
 import {TemplatePortal} from "@angular/cdk/portal";
-import {fromEvent, tap, merge, debounceTime, Subject, Subscriber, Subscription} from "rxjs";
+import {fromEvent, tap, merge, debounceTime, Subscription} from "rxjs";
 
 @Component({
     selector: 'app-tooltip',
@@ -58,9 +58,9 @@ export class TooltipComponent extends AbstractOverlayedComponent implements OnDe
                     'mouseenter')
             )
                 .pipe(
-                // Допустим должен скрываться через секунду
+                    // Допустим должен скрываться через секунду
                     debounceTime(1000),
-                    //Если
+                    // Если последним событием было выходом за пределы, и обратно курсор не возвращался, то скрываем Overlay
                     tap((event) => {
                         if (event.type === 'mouseleave') {
                             this._dispatchOverlay();
